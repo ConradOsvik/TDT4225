@@ -1,0 +1,13 @@
+Connected to: 8.0.39
+You are connected to the database: ('porto',)
+-----------------------------------------------
+
+
+===== Task 2 =====
+What is the average number of trips per taxi?
+  avg_trips_per_taxi
+--------------------
+             3818.26
+
+-----------------------------------------------
+Connection to None is closed

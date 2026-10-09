@@ -1,0 +1,14 @@
+[project]
+name = "tdt4225-assignment-2"
+version = "0.1.0"
+description = "Porto Taxi Trajectory dataset: EDA, MySQL schema, and queries"
+readme = "README.md"
+requires-python = ">=3.12"
+# Same pins as the handout's requirements.txt.
+dependencies = [
+    "haversine==2.8.1",
+    "matplotlib>=3.11.2",
+    "mysql-connector-python==8.0.33",
+    "pandas>=3.0.6",
+    "tabulate==0.9.0",
+]

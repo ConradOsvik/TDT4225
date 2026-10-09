@@ -1,0 +1,32 @@
+# Local MySQL for groups without a VM (see "Setup Docker" in the assignment).
+# The credentials match the defaults in DbConnector.py.
+services:
+  mysql:
+    image: mysql:8.0.39
+    container_name: tdt4225-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: porto
+      MYSQL_USER: porto
+      MYSQL_PASSWORD: porto
+    # local-infile lets a client bulk-load with LOAD DATA LOCAL INFILE (the
+    # client must also connect with allow_local_infile=True). The other three
+    # make loading and querying 83 million rows faster: no binary log, and
+    # more memory for InnoDB than the 128 MB default.
+    command:
+      - --local-infile=1
+      - --skip-log-bin
+      - --innodb-buffer-pool-size=2G
+      - --innodb-redo-log-capacity=2G
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  mysql-data:

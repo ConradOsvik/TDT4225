@@ -1,0 +1,165 @@
+
+
+===== Step 1: Understanding the problem and the data =====
+
+TRIP_ID         1372636858620000589
+CALL_TYPE                         C
+ORIGIN_CALL                     NaN
+ORIGIN_STAND                    NaN
+TAXI_ID                    20000589
+TIMESTAMP                1372636858
+DAY_TYPE                          A
+MISSING_DATA                  False
+POLYLINE        a list of 23 [longitude, latitude] points:
+                [[-8.618643, 41.141412], [-8.618499, 41.141376], [-8.620326, 41.14251]] ...
+
+
+===== Step 2: Importing and inspecting the data =====
+
+rows, columns: (1710670, 11) 
+
+                 type  distinct values
+TRIP_ID         int64          1710589
+CALL_TYPE         str                3
+ORIGIN_CALL   float64            57105
+ORIGIN_STAND  float64               63
+TAXI_ID         int64              448
+TIMESTAMP       int64          1655366
+DAY_TYPE          str                1
+MISSING_DATA     bool                2
+n_points        int64             1255
+km            float64          1673355
+max_jump_m    float64          1646799
+
+
+===== Step 3: Handling missing data =====
+
+Missing values per column:
+
+TRIP_ID               0
+CALL_TYPE             0
+ORIGIN_CALL     1345900
+ORIGIN_STAND     904091
+TAXI_ID               0
+TIMESTAMP             0
+DAY_TYPE              0
+MISSING_DATA          0
+n_points              0
+km                    0
+max_jump_m            0
+
+Missing origin values per call type:
+
+           ORIGIN_CALL  ORIGIN_STAND
+CALL_TYPE                           
+A                    0        364770
+B               817881         11302
+C               528019        528019
+
+Trips flagged MISSING_DATA:   10
+Trips with an empty POLYLINE: 5901
+
+
+===== Step 4: Exploring data characteristics =====
+
+CALL_TYPE
+B    817881
+C    528019
+A    364770 
+
+DAY_TYPE
+A    1710670 
+
+        n_points         km
+count  1710670.0  1710670.0
+mean        48.8        5.5
+std         45.7        7.8
+min          0.0        0.0
+25%         28.0        2.4
+50%         41.0        3.9
+75%         59.0        6.5
+max       3881.0     1229.3 
+
+skewness:
+n_points    13.4
+km          27.2 
+
+Trips per taxi:
+
+count      448.0
+mean      3818.5
+std       1644.0
+min          1.0
+25%       2694.0
+50%       3732.0
+75%       5023.2
+max      10746.0
+
+
+===== Step 5: Performing data transformation =====
+
+First trip starts: 2013-07-01 00:00:53
+Last trip starts:  2014-06-30 23:59:56
+Median trip lasts: 10.0 minutes
+Median trip length: 3.9 km
+Median average speed: 24.0 km/h
+
+
+===== Step 6: Visualizing relationships =====
+
+Busiest starting hour (UTC) per call type:
+
+CALL_TYPE
+A    8
+B    9
+C    4
+
+Median minutes per call type:
+
+CALL_TYPE
+A    11.00
+B     9.75
+C    10.00
+
+Correlation between the numeric columns:
+
+            n_points    km  max_jump_m
+n_points        1.00  0.66        0.07
+km              0.66  1.00        0.41
+max_jump_m      0.07  0.41        1.00
+
+
+===== Step 7: Handling outliers =====
+
+IQR rule: a trip with more than 106 points is an outlier
+Outliers by that rule:      78777
+Longest trip (hours):       16.2
+Longest trip (km):          1229.3
+Trips with under 3 points:  43904
+Trips with a jump > 1 km:   21231
+  their share of all km:    3.7%
+Rows sharing a TRIP_ID:     161
+TRIP_ID = TIMESTAMP + '6' + TAXI_ID in 100% of rows
+
+            TRIP_ID CALL_TYPE  n_points
+1372702836620000080         B         2
+1372702836620000080         C        54
+1373025987620000601         A         0
+1373025987620000601         C        37
+1373210896620000598         B         1
+1373210896620000598         C        19
+
+
+===== Step 8: Communicating findings =====
+
+rows (trips) in the file              1,710,670
+GPS points in total                  83,409,386
+taxis                                       448
+type B trips without a stand             11,302
+trips flagged MISSING_DATA                   10
+trips with an empty POLYLINE              5,901
+trips with under 3 points                43,904
+outlier long trips (IQR rule)            78,777
+trips with a GPS jump > 1 km             21,231
+extra rows from repeated TRIP_IDs            81
+distinct DAY_TYPE values                      1

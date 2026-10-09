@@ -1,0 +1,15 @@
+Connected to: 8.0.39
+You are connected to the database: ('porto',)
+-----------------------------------------------
+
+
+===== Task 7 =====
+Identify the number of invalid trips. An invalid trip is defined as a
+trip with fewer than 3 GPS points.
+
+  invalid_trips
+---------------
+          43827
+
+-----------------------------------------------
+Connection to None is closed
