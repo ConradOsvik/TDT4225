@@ -1,0 +1,375 @@
+
+
+===== Step 1: Understanding the problem and the data =====
+
+                         rows  columns
+movies_metadata.csv     45463       24
+credits.csv             45476        3
+keywords.csv            46419        2
+links.csv               45843        3
+ratings.csv          26024289        4 
+
+The first movie:
+
+adult                                                                False
+belongs_to_collection    {'id': 10194, 'name': 'Toy Story Collection', ...
+budget                                                            30000000
+genres                   [{'id': 16, 'name': 'Animation'}, {'id': 35, '...
+homepage                              http://toystory.disney.com/toy-story
+id                                                                     862
+imdb_id                                                          tt0114709
+original_language                                                       en
+original_title                                                   Toy Story
+overview                 Led by Woody, Andy's toys live happily in his ...
+popularity                                                       21.946943
+poster_path                               /rhIRbceoE9lR4veEXuwCC2wARtG.jpg
+production_companies        [{'name': 'Pixar Animation Studios', 'id': 3}]
+production_countries     [{'iso_3166_1': 'US', 'name': 'United States o...
+release_date                                                    1995-10-30
+revenue                                                          373554033
+runtime                                                               81.0
+spoken_languages                  [{'iso_639_1': 'en', 'name': 'English'}]
+status                                                            Released
+tagline                                                                NaN
+title                                                            Toy Story
+video                                                                False
+vote_average                                                           7.7
+vote_count                                                            5415
+
+Its first cast and crew members:
+
+{'cast_id': 14, 'character': 'Woody (voice)', 'credit_id': '52fe4284c3a36847f8024f95', 'gender': 2, 'id': 31, 'name': 'Tom Hanks', 'order': 0, 'profile_path': '/pQFoyx7rp09CJTAb932F2g8Nlho.jpg'}
+{'credit_id': '52fe4284c3a36847f8024f49', 'department': 'Directing', 'gender': 2, 'id': 7879, 'job': 'Director', 'name': 'John Lasseter', 'profile_path': '/7EdqiNbr4FRjIhKHyPPdFfEEEFG.jpg'}
+
+
+===== Step 2: Importing and inspecting the data =====
+
+Read as is, movies_metadata.csv has 45466 rows, and in 3 of them id is not a number:
+
+               id title                            original_title release_date
+19729       82663   NaN                              Midnight Man          NaN
+19730  1997-08-20   NaN  [{'iso_639_1': 'en', 'name': 'English'}]            1
+29502      122662   NaN                          マルドゥック・スクランブル 排気          NaN
+29503  2012-09-29   NaN      [{'iso_639_1': 'ja', 'name': '日本語'}]           12
+35586      249260   NaN                          Avalanche Sharks          NaN
+35587  2014-01-01   NaN  [{'iso_639_1': 'en', 'name': 'English'}]           22 
+
+An unquoted line break in the overview splits each of these movies in two.
+With such lines joined back up there are 45463 rows, and every id
+and title is present: True 
+
+                                 type  distinct values
+adult                            bool                2
+belongs_to_collection          object             1695
+budget                          int64             1223
+genres                         object             4066
+homepage                          str             7670
+id                              int64            45433
+imdb_id                           str            45416
+original_language                 str               89
+original_title                    str            43371
+overview                          str            44306
+popularity                    float64            43760
+poster_path                       str            45024
+production_companies           object            22710
+production_countries           object             2391
+release_date           datetime64[us]            17334
+revenue                         int64             6863
+runtime                       float64              353
+spoken_languages               object             1931
+status                            str                6
+tagline                           str            20284
+title                             str            42279
+video                            bool                2
+vote_average                  float64               92
+vote_count                      int64             1820
+
+
+===== Step 3: Handling missing data =====
+
+Missing values in movies_metadata.csv:
+
+belongs_to_collection    40972
+homepage                 37684
+imdb_id                     17
+original_language           11
+overview                   954
+poster_path                383
+release_date                84
+runtime                    257
+status                      81
+tagline                  25050
+
+Values that are 0 but mean unknown:
+
+budget        36573
+revenue       38055
+runtime        1558
+vote_count     2899
+
+Empty lists:
+
+genres                   2442
+production_companies    11875
+production_countries     6282
+spoken_languages         3829
+cast                     2418
+crew                      771
+keywords                14795
+
+links.csv rows without a tmdbId: 219
+Movies without a row in credits.csv:  1
+Movies without a row in keywords.csv: 1
+
+Placeholders that also mean missing:
+
+overview
+No overview found.    133
+No Overview             7
+                        5
+No overview found       1
+No overview             1
+No overview.            1
+imdb_id '0': 0
+
+Cast gender codes (0 unknown, 1 female, 2 male):
+
+0    223964
+1    111797
+2    226713
+
+
+===== Step 4: Exploring data characteristics =====
+
+Numeric columns, 0 treated as unknown (vote_average without votes too):
+
+            budget       revenue  runtime  vote_average  vote_count
+count       8890.0  7.408000e+03  43648.0       42564.0     45463.0
+mean    21604277.5  6.878739e+07     97.5           6.0       109.9
+std     34310627.6  1.464203e+08     34.6           1.3       491.3
+min            1.0  1.000000e+00      1.0           0.0         0.0
+25%      2000000.0  2.400000e+06     86.0           5.3         3.0
+50%      8000000.0  1.682272e+07     95.0           6.1        10.0
+75%     25000000.0  6.722707e+07    107.0           6.8        34.0
+max    380000000.0  2.787965e+09   1256.0          10.0     14075.0 
+
+skewness:
+budget           3.1
+revenue          5.1
+runtime          6.7
+vote_average    -0.7
+vote_count      10.5 
+
+status
+Released           45017
+Rumored              230
+Post Production       98
+In Production         20
+Planned               15
+Canceled               2 
+
+Most common original languages:
+
+original_language
+en    32269
+fr     2438
+it     1529
+ja     1350
+de     1080
+es      994
+ru      826
+hi      508 
+
+20 genres, most common:
+
+genres
+Drama              20265
+Comedy             13182
+Thriller            7624
+Romance             6735
+Action              6596
+Horror              4673
+Crime               4307
+Documentary         3932
+Adventure           3496
+Science Fiction     3049 
+
+Ratings:
+
+rating
+0.5     404897
+1.0     843310
+1.5     403607
+2.0    1762440
+2.5    1255358
+3.0    5256722
+3.5    3116213
+4.0    6998802
+4.5    2170441
+5.0    3812499 
+
+270,896 users, 45,115 movies rated
+Ratings per user:
+
+count    270896.0
+mean         96.1
+std         205.7
+min           1.0
+25%          15.0
+50%          30.0
+75%          93.0
+max       18276.0
+
+Most rated movies:
+
+                   title  ratings
+            Forrest Gump    91921
+The Shawshank Redemption    91082
+            Pulp Fiction    87901
+The Silence of the Lambs    84078
+              The Matrix    77960
+
+
+===== Step 5: Performing data transformation =====
+
+First release: 1874-12-09
+Last release:  2020-12-16
+
+Movies per decade:
+
+decade
+1870        2
+1880        4
+1890       75
+1900       87
+1910      176
+1920      432
+1930     1317
+1940     1494
+1950     2080
+1960     2622
+1970     3472
+1980     3931
+1990     5678
+2000    11207
+2010    12801
+2020        1
+
+Most common primary genre (first in genres):
+
+genres
+Drama          11966
+Comedy          8820
+Action          4489
+Documentary     3415
+Horror          2619
+
+Ratings from 1995-01-09 11:46:44 to 2017-08-04 06:57:50
+The most common timestamp, 1996-03-01 00:00:00, has 685 ratings, likely a bulk import rather than real rating times
+
+
+===== Step 6: Visualizing relationships =====
+
+Correlation between the numeric columns (known values only):
+
+              budget  revenue  runtime  vote_average  vote_count
+budget          1.00     0.73     0.22          0.08        0.62
+revenue         0.73     1.00     0.20          0.15        0.78
+runtime         0.22     0.20     1.00          0.11        0.11
+vote_average    0.08     0.15     0.11          1.00        0.12
+vote_count      0.62     0.78     0.11          0.12        1.00
+
+Median vote_average per decade:
+
+decade
+1870    6.1
+1880    4.9
+1890    5.5
+1900    6.1
+1910    6.2
+1920    6.8
+1930    6.0
+1940    6.2
+1950    6.3
+1960    6.3
+1970    6.3
+1980    6.0
+1990    6.0
+2000    6.0
+2010    6.1
+2020    0.0
+
+
+===== Step 7: Handling outliers =====
+
+IQR rule: a runtime above 138 minutes is an outlier
+Outliers by that rule: 2181
+     title  runtime
+Centennial   1256.0
+      Jazz   1140.0
+  Baseball   1140.0
+
+Budgets or revenues under $1,000 (probably given in millions):
+356 movies, for example:
+                title  budget  revenue
+          Black Sheep       0       32
+Anne Frank Remembered       0        1
+         Mute Witness       2        1
+         The Prophecy       8       16
+     Immortal Beloved     120        0
+
+Movies with votes but vote_average 0: 99
+Movies with no votes (vote_average is 0): 2899
+
+Duplicates:
+
+repeated ids in movies_metadata.csv       30
+  of which identical rows                 17
+repeated ids in credits.csv               44
+repeated ids in keywords.csv             987
+repeated tmdbIds in links.csv             30
+links to a tmdbId not in the metadata    161
+
+   id                           title  popularity  vote_count
+ 4912 Confessions of a Dangerous Mind    7.645827         281
+ 4912 Confessions of a Dangerous Mind   11.331072         281
+ 5511                     Le Samouraï    9.091288         187
+ 5511                     Le Samouraï    9.091288         187
+10991   Pokémon: Spell of the Unknown    6.480376         144
+10991   Pokémon: Spell of the Unknown   10.264597         143
+
+Columns that differ between rows with the same id: {'popularity': 13, 'vote_count': 2}
+Repeated ids in credits.csv list the same cast and crew: True
+Repeated ids in keywords.csv are identical rows: True
+
+A repeated title is not a duplicate. Different movies share titles:
+
+title
+Cinderella             11
+Alice in Wonderland     9
+Hamlet                  9
+
+Ratings whose movie cannot be found: 42707
+  no tmdbId in links.csv:      13503
+  tmdbId not in the metadata:  29204
+Ratings repeated once mapped to tmdbId: 125
+
+
+===== Step 8: Communicating findings =====
+
+movie rows, once split rows are joined            45,463
+movies split over two rows                             3
+repeated movie ids                                    30
+movies without a release date                         84
+movies with unknown budget (0)                    36,573
+movies with unknown revenue (0)                   38,055
+movies with budget or revenue under $1,000           356
+movies with no votes (vote_average 0)              2,899
+movies without genres                              2,442
+movies in a collection                             4,491
+movies without cast                                2,418
+cast members with unknown gender                 223,964
+ratings                                       26,024,289
+users                                            270,896
+ratings whose movie cannot be found               42,707
+ratings repeated once mapped to tmdbId               125

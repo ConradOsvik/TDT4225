@@ -1,0 +1,26 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 9 =====
+Among movies where original_language != "en" but at least one production
+company or country is United States, which are the top 10 original
+languages by count? For each language, report the count and one example
+title.
+
+language      movies  example
+----------  --------  ------------------------------
+fr               112  Leon: The Professional
+es                72  Pan's Labyrinth
+it                56  The Mother of Tears
+de                51  Grimm Love
+ja                31  Cowboy Bebop: The Movie
+pt                15  A Civil Action
+xx                14  Quest for Fire
+nl                12  Ushi Must Marry
+zh                11  Crouching Tiger, Hidden Dragon
+ru                11  Space Dogs
+
+-----------------------------------------------
+Connection to movies-db is closed

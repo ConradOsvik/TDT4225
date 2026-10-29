@@ -1,0 +1,31 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 6 =====
+For each movie's top-billed 5 cast (by order), what is the proportion of
+female cast? Aggregate by decade and list decades sorted by average female
+proportion (desc), including movie counts used. Unknown gender may be
+ignored.
+
+decade      female_share    movies
+--------  --------------  --------
+1870s               1.00         1
+2020s               0.80         1
+1890s               0.50         2
+1900s               0.44        12
+2010s               0.38     10543
+1930s               0.37      1249
+2000s               0.36      9647
+1940s               0.36      1435
+1990s               0.34      5179
+1910s               0.34       144
+1950s               0.34      1998
+1920s               0.33       374
+1960s               0.33      2395
+1980s               0.32      3555
+1970s               0.31      3145
+
+-----------------------------------------------
+Connection to movies-db is closed

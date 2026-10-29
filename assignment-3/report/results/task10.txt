@@ -1,0 +1,49 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 10 =====
+For each user, what is their ratings count, population variance of
+ratings, and number of distinct genres rated? List the top 10 most
+genre-diverse users, and separately the top 10 highest-variance users (only
+users with >= 20 ratings).
+
+166,274 users with at least 20 ratings
+
+Most genre-diverse users (ties broken by most ratings):
+
+  user_id    ratings    variance    genres
+---------  ---------  ----------  --------
+    45811      18223        0.64        20
+     8659       9243        0.31        20
+   270123       7622        1.12        20
+   179792       7501        0.90        20
+   228291       7385        0.28        20
+   243443       6289        1.60        20
+    98415       6077        0.85        20
+   229879       6008        1.02        20
+    98787       5805        2.07        20
+   172224       5688        0.53        20
+... 166,274 rows in total
+
+2,896 users have rated all 20 genres
+
+Highest-variance users:
+
+  user_id    ratings    variance    genres
+---------  ---------  ----------  --------
+    83102         20        5.06        15
+   153882         20        5.06        15
+   167241         34        5.06        14
+   185889         26        5.06        14
+    57842         20        5.06        14
+    18703         20        5.06        13
+    15395         83        5.06        14
+    71009         27        5.06        13
+   179759         21        5.05        13
+   221535        120        5.04        19
+... 166,274 rows in total
+
+-----------------------------------------------
+Connection to movies-db is closed

@@ -1,0 +1,21 @@
+# Local MongoDB for groups without a VM (the assignment uses MongoDB 7.0.1).
+# The credentials match the defaults in DbConnector.py.
+services:
+  mongo:
+    image: mongo:7.0.1
+    container_name: tdt4225-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: movies
+      MONGO_INITDB_ROOT_PASSWORD: movies
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  mongo-data:

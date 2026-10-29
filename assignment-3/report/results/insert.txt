@@ -1,0 +1,38 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+45,433 movies inserted
+1,000,000 of 25,981,457 ratings inserted
+2,000,000 of 25,981,457 ratings inserted
+3,000,000 of 25,981,457 ratings inserted
+4,000,000 of 25,981,457 ratings inserted
+5,000,000 of 25,981,457 ratings inserted
+6,000,000 of 25,981,457 ratings inserted
+7,000,000 of 25,981,457 ratings inserted
+8,000,000 of 25,981,457 ratings inserted
+9,000,000 of 25,981,457 ratings inserted
+10,000,000 of 25,981,457 ratings inserted
+11,000,000 of 25,981,457 ratings inserted
+12,000,000 of 25,981,457 ratings inserted
+13,000,000 of 25,981,457 ratings inserted
+14,000,000 of 25,981,457 ratings inserted
+15,000,000 of 25,981,457 ratings inserted
+16,000,000 of 25,981,457 ratings inserted
+17,000,000 of 25,981,457 ratings inserted
+18,000,000 of 25,981,457 ratings inserted
+19,000,000 of 25,981,457 ratings inserted
+20,000,000 of 25,981,457 ratings inserted
+21,000,000 of 25,981,457 ratings inserted
+22,000,000 of 25,981,457 ratings inserted
+23,000,000 of 25,981,457 ratings inserted
+24,000,000 of 25,981,457 ratings inserted
+25,000,000 of 25,981,457 ratings inserted
+25,981,457 of 25,981,457 ratings inserted
+collection      documents
+------------  -----------
+movies             45,433
+ratings        25,981,457
+
+-----------------------------------------------
+Connection to movies-db is closed

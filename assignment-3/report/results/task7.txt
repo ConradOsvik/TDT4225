@@ -1,0 +1,20 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 7 =====
+Using a text search over overview and tagline, which 20 movies matching
+"noir" or "neo-noir" (and vote_count >= 50) have the highest vote_average?
+Return title, year, vote_average, and vote_count.
+
+title                      year    vote_average    vote_count
+-----------------------  ------  --------------  ------------
+The Bad Sleep Well         1960            7.70            57
+Drunken Angel              1948            7.70            54
+Elevator to the Gallows    1958            7.60            85
+Synchronicity              2015            5.70           114
+Frank & Lola               2016            5.70            51
+
+-----------------------------------------------
+Connection to movies-db is closed

@@ -1,0 +1,246 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 5 =====
+By decade (e.g., 1970s, 1980s, ...) and primary genre (first element in
+genres), what is the median runtime and movie count? List results sorted by
+decade then median runtime (desc).
+
+decade    primary_genre      median_runtime    movies
+--------  ---------------  ----------------  --------
+1870s     Documentary                  1.00         2
+1880s     Documentary                  1.00         4
+1890s     Fantasy                      1.50         8
+1890s     Comedy                       1.00         9
+1890s     Documentary                  1.00        27
+1890s     Horror                       1.00         3
+1890s     Action                       1.00         2
+1890s     History                      1.00         1
+1890s     Drama                        1.00         2
+1890s     Family                       1.00         1
+1900s     History                     60.00         1
+1900s     Adventure                   15.00         4
+1900s     Drama                       10.00         7
+1900s     Action                       9.00         2
+1900s     Thriller                     8.00         1
+1900s     Science Fiction              5.50         2
+1900s     Horror                       4.00         2
+1900s     Fantasy                      4.00        15
+1900s     Comedy                       3.00        17
+1900s     Music                        3.00         1
+1900s     Crime                        2.00         2
+1900s     Animation                    2.00         1
+1900s     Documentary                  1.00        12
+1900s     Romance                      1.00         2
+1910s     History                    109.00         2
+1910s     War                        108.00         2
+1910s     Mystery                     84.00         3
+1910s     Adventure                   70.00         8
+1910s     Romance                     68.50         6
+1910s     Drama                       65.00        52
+1910s     Western                     60.50         4
+1910s     Crime                       59.00         7
+1910s     Family                      52.00         1
+1910s     Documentary                 43.50         2
+1910s     Horror                      38.50         2
+1910s     Action                      29.00         1
+1910s     Comedy                      27.00        53
+1910s     Fantasy                     14.50         6
+1910s     Animation                   12.00         5
+1920s     Science Fiction            120.00         1
+1920s     Music                      114.00         2
+1920s     War                        106.00         4
+1920s     History                    105.50         4
+1920s     Adventure                  100.00        21
+1920s     Thriller                    93.50         4
+1920s     Action                      90.50        18
+1920s     Drama                       90.00       164
+1920s     Western                     88.50        10
+1920s     Romance                     88.00        18
+1920s     Horror                      83.00         5
+1920s     Crime                       83.00        16
+1920s     Documentary                 67.00        18
+1920s     Comedy                      67.00        92
+1920s     Fantasy                     66.00         4
+1920s     Mystery                     57.50         2
+1920s     Family                      37.00         2
+1920s     Animation                    6.50        10
+1930s     Music                       94.50        32
+1930s     History                     91.00        10
+1930s     Adventure                   90.00        55
+1930s     Romance                     86.00        79
+1930s     War                         85.00        13
+1930s     Drama                       85.00       382
+1930s     Comedy                      82.00       349
+1930s     Western                     81.00        21
+1930s     Science Fiction             80.00         5
+1930s     Thriller                    79.00        10
+1930s     Family                      78.00         5
+1930s     Fantasy                     76.50         8
+1930s     Action                      76.00        80
+1930s     Crime                       74.00        92
+1930s     Mystery                     70.00        38
+1930s     Horror                      68.00        28
+1930s     Documentary                 63.00        14
+1930s     Animation                    8.00        37
+1940s     Science Fiction            220.00         1
+1940s     History                    107.00        11
+1940s     Adventure                   98.50        44
+1940s     Drama                       98.00       466
+1940s     Action                      93.50        88
+1940s     Music                       92.00        35
+1940s     Romance                     91.50        52
+1940s     War                         91.00        41
+1940s     Comedy                      90.00       323
+1940s     Thriller                    86.00        47
+1940s     Crime                       86.00       135
+1940s     Western                     86.00        40
+1940s     Family                      86.00         8
+1940s     Fantasy                     85.00        23
+1940s     Mystery                     71.00        41
+1940s     Horror                      67.00        27
+1940s     Documentary                 55.00        20
+1940s     Animation                    8.00        34
+1950s     Music                      101.00        34
+1950s     Drama                       98.00       627
+1950s     History                     97.00        17
+1950s     War                         96.00        46
+1950s     Romance                     95.00        76
+1950s     Adventure                   93.00       100
+1950s     Comedy                      93.00       330
+1950s     Action                      93.00       166
+1950s     Mystery                     91.50        22
+1950s     Family                      88.50        12
+1950s     Thriller                    87.50        46
+1950s     Crime                       86.00       170
+1950s     Western                     84.00       109
+1950s     Fantasy                     79.00        21
+1950s     Horror                      78.00        79
+1950s     Science Fiction             78.00        50
+1950s     Documentary                 33.00        32
+1950s     Animation                    7.00        27
+1960s     War                        112.50        50
+1960s     TV Movie                   112.00         5
+1960s     History                    110.00        24
+1960s     Drama                      102.00       714
+1960s     Romance                    102.00        75
+1960s     Mystery                    101.50        36
+1960s     Crime                      100.50       104
+1960s     Action                     100.00       247
+1960s     Music                      100.00        28
+1960s     Western                     98.50        96
+1960s     Comedy                      98.00       480
+1960s     Adventure                   97.00       138
+1960s     Thriller                    96.50        54
+1960s     Foreign                     91.50        10
+1960s     Fantasy                     91.00        30
+1960s     Horror                      87.00       146
+1960s     Science Fiction             85.00        57
+1960s     Family                      80.00        20
+1960s     Documentary                 80.00        77
+1960s     Animation                   25.00        36
+1970s     History                    120.00        22
+1970s     War                        107.00        35
+1970s     Romance                    103.00        59
+1970s     Drama                      102.00       861
+1970s     Crime                      100.00       150
+1970s     Mystery                     99.50        56
+1970s     Thriller                    98.00       126
+1970s     Action                      98.00       455
+1970s     Music                       98.00        33
+1970s     Adventure                   98.00       123
+1970s     Foreign                     96.50        20
+1970s     Comedy                      96.00       492
+1970s     Western                     96.00        88
+1970s     Fantasy                     94.00        47
+1970s     Science Fiction             94.00        47
+1970s     Horror                      91.00       320
+1970s     Family                      90.00        39
+1970s     TV Movie                    87.50        28
+1970s     Documentary                 86.00       136
+1970s     Animation                   38.00        57
+1980s     War                        120.00        31
+1980s     Drama                      105.00       840
+1980s     Crime                      102.00       132
+1980s     TV Movie                   102.00        29
+1980s     Adventure                  101.00       168
+1980s     History                    100.00        17
+1980s     Thriller                    98.00        85
+1980s     Romance                     98.00        68
+1980s     Action                      98.00       493
+1980s     Western                     97.00        10
+1980s     Mystery                     97.00        38
+1980s     Comedy                      96.00       823
+1980s     Science Fiction             95.00        81
+1980s     Music                       94.00        39
+1980s     Fantasy                     93.50        90
+1980s     Horror                      91.00       379
+1980s     Family                      90.00        42
+1980s     Foreign                     89.00         7
+1980s     Documentary                 84.00       124
+1980s     Animation                   70.00       113
+1990s     War                        115.00        23
+1990s     History                    111.00        33
+1990s     Crime                      105.00       179
+1990s     Drama                      105.00      1427
+1990s     Western                    102.00        21
+1990s     Foreign                    100.50        16
+1990s     Mystery                    100.00        56
+1990s     Romance                     99.00       141
+1990s     Thriller                    99.00       163
+1990s     Action                      98.00       690
+1990s     Adventure                   97.00       193
+1990s     Comedy                      96.00      1153
+1990s     Fantasy                     96.00       132
+1990s     TV Movie                    95.00        70
+1990s     Music                       94.00        58
+1990s     Science Fiction             94.00        94
+1990s     Horror                      93.00       230
+1990s     Family                      90.00        75
+1990s     Documentary                 86.50       246
+1990s     Animation                   74.00       140
+2000s     War                        114.00        54
+2000s     History                    110.50        46
+2000s     Romance                    102.00       201
+2000s     Drama                      102.00      3028
+2000s     Crime                      102.00       351
+2000s     Adventure                  100.00       335
+2000s     Fantasy                     98.00       167
+2000s     Foreign                     98.00        33
+2000s     Action                      98.00      1135
+2000s     Thriller                    98.00       313
+2000s     Western                     98.00        16
+2000s     Music                       98.00        93
+2000s     Mystery                     96.00        99
+2000s     Comedy                      95.00      2157
+2000s     Science Fiction             92.00       111
+2000s     Horror                      91.00       590
+2000s     TV Movie                    90.00       100
+2000s     Family                      90.00       105
+2000s     Documentary                 88.00       995
+2000s     Animation                   76.00       322
+2010s     History                    105.00        81
+2010s     Crime                      103.00       309
+2010s     Drama                      100.00      3082
+2010s     Action                     100.00      1025
+2010s     War                        100.00        72
+2010s     Music                       99.00       117
+2010s     Romance                     99.00       368
+2010s     Western                     98.50        28
+2010s     Adventure                   97.00       297
+2010s     Foreign                     96.50        26
+2010s     Mystery                     95.50       152
+2010s     Thriller                    95.00       744
+2010s     Comedy                      93.00      2143
+2010s     Fantasy                     93.00       137
+2010s     Science Fiction             91.00       183
+2010s     Family                      90.00       189
+2010s     Horror                      90.00       762
+2010s     Documentary                 88.50      1562
+2010s     TV Movie                    86.50       138
+2010s     Animation                   80.00       323
+
+-----------------------------------------------
+Connection to movies-db is closed

@@ -1,0 +1,36 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 2 =====
+List actor pairs that have co-starred in >= 3 movies together, their
+number of co-appearances, and their average movie vote_average. Sort by
+number of co-appearances.
+
+actor_1          actor_2            movies    mean_vote
+---------------  ---------------  --------  -----------
+Huntz Hall       Leo Gorcey             35         6.35
+Charlie Chaplin  Edna Purviance         33         6.46
+Oliver Hardy     Stan Laurel            31         6.35
+Lou Costello     Bud Abbott             27         6.47
+Jeff Bennett     Rob Paulsen            27         6.23
+Grey Griffin     Frank Welker           25         6.71
+Raymond Burr     Barbara Hale           25         5.93
+John Wayne       Paul Fix               24         5.85
+Jim Cummings     Frank Welker           21         6.55
+Frank Mayo       Jack Mower             21         6.28
+Jim Cummings     Jeff Bennett           21         6.27
+Frank Welker     Jeff Bennett           21         6.23
+Peter Cushing    Christopher Lee        21         5.99
+Bernard Gorcey   Leo Gorcey             20         7.00
+Charlie Chaplin  Henry Bergman          20         6.98
+Toshirō Mifune   Takashi Shimura        19         7.48
+Bernard Gorcey   Huntz Hall             19         7.11
+Buster Keaton    Joe Roberts            19         6.88
+Sammo Hung       Yuen Biao              19         6.83
+Jackie Chan      Yuen Biao              19         6.80
+... 45,650 rows in total
+
+-----------------------------------------------
+Connection to movies-db is closed

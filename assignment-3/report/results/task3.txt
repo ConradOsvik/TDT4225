@@ -1,0 +1,25 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 3 =====
+List the top 10 actors (with >= 10 credited movies) that have the widest
+genre breadth. Report the actor, the number of distinct genres they've
+appeared in, and up to 5 example genres.
+
+actor                 movies    genres  examples
+------------------  --------  --------  -------------------------------------------
+Christopher Lee          148        20  Action, Adventure, Animation, Comedy, Crime
+Donald Sutherland        108        20  Action, Adventure, Animation, Comedy, Crime
+Christopher Walken        96        20  Action, Adventure, Animation, Comedy, Crime
+Dennis Hopper             94        20  Action, Adventure, Animation, Comedy, Crime
+Keith David               87        20  Action, Adventure, Animation, Comedy, Crime
+Liam Neeson               82        20  Action, Adventure, Animation, Comedy, Crime
+James Earl Jones          79        20  Action, Adventure, Animation, Comedy, Crime
+Jim Broadbent             78        20  Action, Adventure, Animation, Comedy, Crime
+Martin Sheen              77        20  Action, Adventure, Animation, Comedy, Crime
+Ned Beatty                72        20  Action, Adventure, Animation, Comedy, Crime
+
+-----------------------------------------------
+Connection to movies-db is closed

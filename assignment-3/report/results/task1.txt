@@ -1,0 +1,26 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 1 =====
+Considering only crew with job = Director, which 10 directors with >= 5
+movies have the highest median revenue? Also report each director's movie
+count and mean vote_average.
+
+director            movies    with_revenue    median_revenue_musd    mean_vote
+----------------  --------  --------------  ---------------------  -----------
+David Yates             10               6                 936.09         6.70
+Peter Jackson           14              11                 871.37         7.12
+George Lucas             7               6                 712.40         6.81
+Brad Bird                6               5                 623.72         7.15
+Francis Lawrence         6               6                 619.39         6.80
+Eric Darnell             5               5                 532.68         6.34
+Tom McGrath              5               5                 532.68         6.40
+Carlos Saldanha          7               5                 500.19         6.04
+Andrew Adamson           6               5                 484.41         6.52
+John Lasseter           10               5                 461.98         6.72
+... 382 rows in total
+
+-----------------------------------------------
+Connection to movies-db is closed

@@ -1,0 +1,35 @@
+Connected to MongoDB 7.0.1
+You are connected to the database: movies
+-----------------------------------------------
+
+
+===== Task 8 =====
+Which 20 director-actor pairs with >= 3 collaborations (same movie) have
+the highest mean vote_average, considering only movies with vote_count >=
+100? Include the pair's films count and mean revenue.
+
+director              actor               films    mean_vote    mean_revenue_musd
+--------------------  ----------------  -------  -----------  -------------------
+Akira Kurosawa        Minoru Itô              3         8.13                 0.27
+Akira Kurosawa        Eijirô Tôno             3         8.13                 0.27
+Charlie Chaplin       Hank Mann               3         8.13                 6.51
+Akira Kurosawa        Haruo Suzuki            3         8.13                 0.27
+Akira Kurosawa        Toranosuke Ogawa        3         8.10                 0.16
+Akira Kurosawa        Atsushi Watanabe        3         8.10                 0.16
+Quentin Tarantino     Harvey Keitel           3         8.10               182.57
+Francis Ford Coppola  John Cazale             3         8.10                99.01
+Akira Kurosawa        Noriko Honma            4         8.07                 0.14
+Akira Kurosawa        Ichirô Chiba            4         8.07                 0.16
+Francis Ford Coppola  Robert Duvall           4         8.07                96.62
+Akira Kurosawa        Daisuke Katô            4         8.07                 0.14
+Akira Kurosawa        Shôichi Hirose          3         8.07                 0.27
+Akira Kurosawa        Haruya Sakamoto         3         8.07                 0.27
+Akira Kurosawa        Susumu Fujita           3         8.07
+Akira Kurosawa        Isao Kimura             4         8.05                 0.16
+Akira Kurosawa        Minoru Chiaki           6         8.03                 0.14
+Peter Jackson         Liv Tyler               3         8.03               972.18
+Hayao Miyazaki        Tsunehiko Kamijô        3         8.03               217.15
+Peter Jackson         Sean Bean               3         8.03               972.18
+
+-----------------------------------------------
+Connection to movies-db is closed
